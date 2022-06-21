@@ -13,15 +13,13 @@ class Game {
       this.intervalId = setInterval(() => {
         this.clear();
         this.draw();
-        //this.checkCollisions()
+        this.checkCollisions()
         this.move();
-        
         this.tickObstacle++;
   
         if (this.tickObstacle % 200 === 0) {
             this.tick = 0
             this.obstacles = this.obstacles.filter(obs => obs.isVisible())
-            console.log(this.obstacles)
             this.addObstacle()
           }
         
@@ -40,7 +38,7 @@ class Game {
   
     move() {
       this.background.move()
-      //this.witch.move()
+      this.witch.move()
       this.obstacles.forEach(obs => obs.move())
     }
     
@@ -48,19 +46,17 @@ class Game {
       this.background.draw()
       this.witch.draw()
       this.obstacles.forEach(obs => obs.draw())
-      console.log(this.obstacles)
+     
     }
-  /*
-    checkCollisions() {
-      let playerVsObs = this.obstacles.find(obs => obs.collide(this.player))
-      
-      if (playerVsObs || this.player.y + this.player.h >= this.ctx.canvas.height)  {
-        this.gameOver()
-      }  
   
-      console.log(playerVsObs)
+    checkCollisions() {
+      let witchVsObs = this.obstacles.find(obs => obs.collide(this.witch))
+      
+      if (witchVsObs || this.witch.y + this.witch.h >= this.ctx.canvas.height)  {
+       // this.gameOver()
+      }  
     }
-  */
+  
     addObstacle() {
       this.obstacles.push(new Obstacle(this.ctx))
      

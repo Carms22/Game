@@ -4,7 +4,7 @@ class Obstacle {
         this.x = this.ctx.canvas.width - 100;
         this.y = -75;
         this.w = 100;
-        this.h = 500;
+        this.h = 250;
         this.img = new Image();
         this.img.src = "../img/luz-negro.png"
         this.img.frames = 4;
