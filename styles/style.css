@@ -1,0 +1,25 @@
+html, body {
+    background-image: url("../img/background-page.png");
+    height: 100%;
+    width: 100%;
+  }
+  .cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 250px;
+
+  }
+  
+  canvas {
+
+    border: 5px solid rgb(162, 0, 255);
+  }
+  
+  #start-btn {
+    display: block;
+  }
+  
+  #add-enemy {
+    display: none;
+  }
