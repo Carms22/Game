@@ -3,13 +3,19 @@ class Bullet {
       this.ctx = ctx
       this.y = y
       this.x = x
+      this.w=40;
+      this.h=20;
       this.vx = 5
       this.img = new Image();
-      this.img.src="/img/"
+      this.img.src="/img/cat/cat.png";
+      this.img.frameIndex=0;
+      this.img.frames=3;
+      this.sound = new Audio();
+      this.sound.src="/sounds/cats.mp3";
+      this.tick = 0;
     }
   
     draw() {
-
         this.ctx.drawImage(
             this.img,
             this.img.frameIndex * this.img.width / this.img.frames,
@@ -22,13 +28,24 @@ class Bullet {
             this.h
         )
         
-        //this.animate()
+        this.animate()
     }
     move() {
       this.x += this.vx
     }
   
     isVisible() {
+        this.sound.play()
       return this.x <= this.ctx.canvas.width
+    }
+    animate() {
+        this.tick++
+        if (this.tick >= 10) {
+            this.tick = 0
+            this.img.frameIndex++
+        }
+        if (this.img.frameIndex >= this.img.frames) {
+            this.img.frameIndex = 0;
+        }
     }
   }

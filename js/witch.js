@@ -10,13 +10,13 @@ class Witch {
         this.g = 0.02;
         this.actions = {
             up: false,
-            down:false,
+            down: false,
             right: false,
             left: false,
             shoot: false,
         }
-        this.health = 200;
-        this.damage = 2;
+        this.health = 1200;
+        this.damage = 10;
 
         this.img = new Image();
         this.img.src = "/img/bruja_move-removebg-preview.png";
@@ -25,10 +25,11 @@ class Witch {
         this.tick = 0;
         this.setListeners()
         this.weapon = new Weapon(this);
+        this.sound = new Audio();
+        this.sound.src = '/sounds/witch-laugh.mp3';
     }
 
     draw() {
-
         this.ctx.drawImage(
             this.img,
             this.img.frameIndex * this.img.width / this.img.frames,
@@ -88,16 +89,23 @@ class Witch {
 
     applyActions() {
         if (this.y >= 0 && this.actions.up) {
-            this.vy += -0.2
+            this.vy += -0.3
         }
-        if (this.actions.right) {
-            this.vx = 1
+        else if (this.actions.down) {
+            this.vy += 0.2
         }
-        if (this.actions.left) {
-            this.vx = -1
+        else if (this.actions.right) {
+            this.vx += 0.5
         }
-        if(this.actions.shoot){
-        this.weapon.shoot()
+        else if (this.actions.left) {
+            this.vx += -0.5
+        }
+        else{
+            this.vx=0;
+        }
+        if (this.actions.shoot) {
+            this.weapon.shoot()
+            this.sound.play()
         }
 
     }
@@ -107,24 +115,27 @@ class Witch {
             case UP:
                 this.actions.up = apply;
                 break;
+            case DOWN:
+                this.actions.down = apply;
+                break;
             case RIGHT:
                 this.actions.right = apply;
                 break;
             case LEFT:
                 this.actions.left = apply;
                 break;
-            case SPACE:
+            case ALT:
                 this.actions.shoot = apply;
                 break;
         }
     }
-    receiveDamage(damage){
-        this.health-=damage
-        if (this.health <=0){
-          return ""
+    receiveDamage(damage) {
+        this.health -= damage
+        if (this.health <= 0) {
+            return ""
         }
-        
-      }
+
+    }
 
 
 }

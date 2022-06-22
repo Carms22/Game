@@ -4,6 +4,7 @@ class Weapon {
       this.isReloading = false
       this.shooter = shooter
       this.bullets = []
+      
     }
   
     shoot() {

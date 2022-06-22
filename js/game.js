@@ -6,6 +6,9 @@ class Game {
       this.background = new Background(this.ctx);
       this.obstacles = [];
       this.tickObstacle = 0
+      this.level=[
+
+      ]
       
     }
   
@@ -46,14 +49,16 @@ class Game {
       this.background.draw()
       this.witch.draw()
       this.obstacles.forEach(obs => obs.draw())
-     
     }
   
     checkCollisions() {
       let witchVsObs = this.obstacles.find(obs => obs.collide(this.witch))
       
       if (witchVsObs || this.witch.y + this.witch.h >= this.ctx.canvas.height)  {
-       // this.gameOver()
+       this.obstacles.forEach(obs=>{
+        setTimeout(this.witch.health -= obs.strength,10000)
+    })
+      
       }  
     }
   
