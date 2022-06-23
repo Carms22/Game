@@ -17,6 +17,7 @@ class Weapon {
         }, 500)
       }
     }
+ 
   
     clearBullets() {
       this.bullets = this.bullets.filter(bullet => {

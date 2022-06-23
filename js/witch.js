@@ -16,7 +16,7 @@ class Witch {
             shoot: false,
         }
         this.health = 1200;
-        this.damage = 10;
+        this.strenght = 10;
 
         this.img = new Image();
         this.img.src = "/img/bruja_move-removebg-preview.png";
@@ -27,6 +27,8 @@ class Witch {
         this.weapon = new Weapon(this);
         this.sound = new Audio();
         this.sound.src = '/sounds/witch-laugh.mp3';
+        this.soundCat= new Audio();
+        this.soundCat.src= "/sounds/cats.mp3";
     }
 
     draw() {
@@ -93,6 +95,7 @@ class Witch {
         }
         else if (this.actions.down) {
             this.vy += 0.2
+            this.sound.play()
         }
         else if (this.actions.right) {
             this.vx += 0.5
@@ -105,7 +108,8 @@ class Witch {
         }
         if (this.actions.shoot) {
             this.weapon.shoot()
-            this.sound.play()
+            this.soundCat.play();
+            
         }
 
     }
@@ -129,13 +133,5 @@ class Witch {
                 break;
         }
     }
-    receiveDamage(damage) {
-        this.health -= damage
-        if (this.health <= 0) {
-            return ""
-        }
-
-    }
-
-
+   
 }

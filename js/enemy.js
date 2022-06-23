@@ -1,27 +1,30 @@
 class Enemy {
-    constructor(ctx,img,strength) {
+    constructor(ctx,name,img,health,strength,vx, sound) {
         this.ctx = ctx;
+        this.name =name;
         this.x = this.ctx.canvas.width - 100;
-        this.y = -75;
-        this.w = 100;
-        this.h = 250;
+        this.y = Math.random()* 50 + 100;
+        this.w = 75;
+        this.h = 50;
         this.img = new Image();
         this.img.src = img;
         this.img.frames = 4;
         this.img.frameIndex = 0;
         this.tick=0;
         this.strength=strength;
-        this.vx = -2;
+        this.health=health;
+        this.vx = vx;
+        this.sound= new Audio();
+        this.sound.src=sound;
     }
 
     move() {
         this.x += this.vx;
     }
-
+   
     collide(el) {
         const collideX = el.x + el.w > this.x && el.x < this.x + this.w
         const collideY = el.y < this.y + this.h && el.y + el.h > this.y
-
         return collideX && collideY
     }
 

@@ -3,8 +3,8 @@ class Bullet {
       this.ctx = ctx
       this.y = y
       this.x = x
-      this.w=40;
-      this.h=20;
+      this.w=60;
+      this.h=30;
       this.vx = 5
       this.img = new Image();
       this.img.src="/img/cat/cat.png";
@@ -33,6 +33,7 @@ class Bullet {
     move() {
       this.x += this.vx
     }
+ 
   
     isVisible() {
         this.sound.play()
