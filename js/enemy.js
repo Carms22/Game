@@ -2,7 +2,7 @@ class Enemy {
     constructor(ctx,name,img,health,strength,vx, sound) {
         this.ctx = ctx;
         this.name =name;
-        this.x = this.ctx.canvas.width - 100;
+        this.x = this.ctx.canvas.width;
         this.y = Math.random()* 50 + 100;
         this.w = 75;
         this.h = 50;
@@ -11,8 +11,8 @@ class Enemy {
         this.img.frames = 4;
         this.img.frameIndex = 0;
         this.tick=0;
-        this.strength=strength;
-        this.health=health;
+        this.strength = strength;
+        this.health = health;
         this.vx = vx;
         this.sound= new Audio();
         this.sound.src=sound;
