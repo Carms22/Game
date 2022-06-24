@@ -4,8 +4,8 @@ class Enemy {
         this.name =name;
         this.x = this.ctx.canvas.width;
         this.y = Math.random()* 50 + 100;
-        this.w = 75;
-        this.h = 50;
+        this.w = 100;
+        this.h = 75;
         this.img = new Image();
         this.img.src = img;
         this.img.frames = 4;
