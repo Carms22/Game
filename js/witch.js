@@ -19,9 +19,11 @@ class Witch {
         this.strenght = 10;
 
         this.img = new Image();
-        this.img.src = "/img/bruja_move-removebg-preview.png";
+        this.img.src = "/img/bruja-removebg-preview.png";
         this.img.frames = 4;
+        this.img.yFrames = 2;
         this.img.frameIndex = 0;
+        this.img.yFrameIndex=0;
         this.tick = 0;
         this.setListeners()
         this.weapon = new Weapon(this);
@@ -29,15 +31,22 @@ class Witch {
         this.sound.src = '/sounds/witch-laugh.mp3';
         this.soundCat= new Audio();
         this.soundCat.src= "/sounds/cats.mp3";
+        this.receivingDamage = false;
     }
 
     draw() {
+        if(this.receivingDamage) {
+            this.img.yFrameIndex = 1;
+        } else {
+            this.img.yFrameIndex = 0;
+        }
+
         this.ctx.drawImage(
             this.img,
             this.img.frameIndex * this.img.width / this.img.frames,
-            0,
+            this.img.yFrameIndex * this.img.height / this.img.yFrames,
             this.img.width / this.img.frames,
-            this.img.height,
+            this.img.height / this.img.yFrames,
             this.x,
             this.y,
             this.w,
@@ -107,9 +116,7 @@ class Witch {
             this.vx=0;
         }
         if (this.actions.shoot) {
-            this.weapon.shoot()
-            this.soundCat.play();
-            
+            this.weapon.shoot()          
         }
 
     }
@@ -129,6 +136,7 @@ class Witch {
                 this.actions.left = apply;
                 break;
             case ALT:
+                this.soundCat.play();
                 this.actions.shoot = apply;
                 break;
         }

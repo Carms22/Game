@@ -1,11 +1,12 @@
 class Enemy {
-    constructor(ctx,name,img,health,strength,vx, sound) {
+    constructor(ctx,name,img,health,strength,vx,h,witch, sound) {
         this.ctx = ctx;
+        this.witch =witch;
         this.name =name;
         this.x = this.ctx.canvas.width;
-        this.y = Math.random()* 50 + 100;
-        this.w = 100;
-        this.h = 75;
+        this.y = Math.random()* 200 + 100;
+        this.w = 150;
+        this.h = h;
         this.img = new Image();
         this.img.src = img;
         this.img.frames = 4;
@@ -14,12 +15,25 @@ class Enemy {
         this.strength = strength;
         this.health = health;
         this.vx = vx;
+        this.vy= 2;
         this.sound= new Audio();
         this.sound.src=sound;
     }
 
     move() {
         this.x += this.vx;
+    }
+
+    moveWithIA() {      
+        if(this.x > this.witch.x) {
+            if(this.y > this.witch.y){
+                this.y -= this.vy;
+            }
+            if(this.y < this.witch.y){
+                this.y += this.vy;
+            }
+        }
+        this.move();
     }
    
     collide(el) {

@@ -6,14 +6,16 @@ const game = new Game(ctx);
 window.onload = () => {
   document.getElementById('start-button').onclick = () => {
     startGame();
+    
   };
 
   
   function startGame() {
    // if(game.intervalId === null){
       game.start()
+      game.score()
    // }else{
-    //  game.score()
+    //  
     //  game.gameOver()
 
    // }
