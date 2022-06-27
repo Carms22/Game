@@ -37,7 +37,7 @@ class Bullet {
   
     isVisible() {
         this.sound.play()
-      return this.x <= this.ctx.canvas.width
+        return this.x <= this.ctx.canvas.width
     }
     animate() {
         this.tick++

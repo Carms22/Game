@@ -6,6 +6,7 @@ class Game {
         this.background = new Background(this.ctx);
         this.obstacles = [];
         this.enemies = [];
+        this.disappears=[];
         this.tickObstacle = 0
         this.tickEnemy = 0;
         this.levelUp=5;
@@ -87,7 +88,6 @@ class Game {
             this.ctx.canvas.height
         )
         this.witch.weapon.clearBullets()
-
     }
 
 
@@ -96,12 +96,9 @@ class Game {
         this.witch.move()
         this.obstacles.forEach(obs => obs.move())
         if(this.levelUp< 4){
-            console.log("entro a draw");
             this.enemies.forEach(en => en.move())
         } else {
-            console.log("ahora al else");
-            
-            this.enemies.forEach(en => en.moveWithIA())
+           this.enemies.forEach(en => en.moveWithIA())
         }
     }
 
@@ -109,6 +106,7 @@ class Game {
         this.background.draw()
         this.witch.draw()
         this.obstacles.forEach(obs => obs.draw())
+        this.disappears.forEach(dis=>dis.draw())
         this.enemies.forEach(en => {
             en.sound.play()
             en.draw()
@@ -148,7 +146,11 @@ class Game {
                     if (en.health <= 0) {
                         this.count += 1;
                         this.totalCount += 1;
+                        this.disappears.push(new Disappear(en))
                         this.enemies.splice(eIndex, 1)
+                        setTimeout(() => {
+                            this.disappears.splice(eIndex,1);
+                        }, 1000);
                         if (this.count >= 1) {
                             // levelUp!!! new enemy
                             this.levelUp += 1;
@@ -181,6 +183,7 @@ class Game {
             this.levels[this.levelsIndex].sound))
 
     }
+
 
     /*
       gameOver() {

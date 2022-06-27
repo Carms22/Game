@@ -16,6 +16,7 @@ class Enemy {
         this.health = health;
         this.vx = vx;
         this.vy= 2;
+        this.disappear= new Disappear(this);
         this.sound= new Audio();
         this.sound.src=sound;
     }

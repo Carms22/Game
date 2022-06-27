@@ -10,16 +10,53 @@
 </head>
 
 <body>
-    <div class ="all">
-        <button id="start-button">Start</button>
+    <div class="all">
+        <div class="left">
+            <button id="start-button" class="button">Start</button>
+            <button id="about-button" class="button">About</button>
+            <button id="how-button" class="button">How To</button>
+        </div>
         <div class="cont">
             <title>Witch</title>
             <div class="game-bacground">
                 <img src="./images/game-bacground.png" alt="" class="logo-img" />
                 <br />
-                <p> HAHAHAHAHHAHAHAHHAHAH</p>
-
+                <p> HAHAHAHAHHAHAHAHHAHAH !!!!</p>
             </div>
+            <!-- <div id="about" class="invisible">
+                <h2 class="title">ABOUT THE GAME</h1>
+                    <p>
+                        This game was developed by Marina Laporte Böni and it is inspired by the original Space Invaders, created by Tomohiro Nishikado in 1978. <br><br>
+                        It was developed as part of my Ironhack Web Development Bootcamp. The technologies used in this game are HTML5, CSS3 and Javascript ES6. All the code was done from scratch. <br><br>
+                        I hope you enjoy playing it as much as I enjoyed working on it. <br>
+                        Feel free to share with your friends :) <br><br>
+                        Marina Laporte Böni - June, 2022.
+                    </p>
+                    <button class="menu" id="back-to-menu">GO BACK TO MENU</button>
+            </div>
+            <div id="how" class="invisible">
+                <h2 class="title">HOW TO PLAY</h1>
+                    <p>JUST GET ON THE BROOM</p>
+                    <div class="flex-row">
+                        <ul>
+                            <li>PRESS W - UP</li>
+                            <li>PRESS A - LEFT</li>
+                            <li>PRESS S - DOWN</li>
+                            <li>PRESS D - RIGHT</li>
+                            <li>PRESS SPACE - SHOOT</li>
+                        </ul>
+                        <img src="" alt="wasd keys" id="keys">
+                    </div>            
+                    <p>NNNNNNNN</p>
+                    <ul>
+                        <li>Enemies will shoot as well - try to dodge their bullets.</li>
+                        <li>The satellite will prevent you from shooting as long as you can see it.</li>
+                        <li>Avoid the meteors.</li>
+                        <li>If you see a heart or a bullet icon, try to catch it - they'll help you win.</li>
+                        <li>Don't let enemies reach your space - you don't want to lose.</li>
+                    </ul>   
+                    <button class="menu" id="back-to-menu2">GO BACK TO MENU</button>
+            </div> -->
             <div id="game-board">
                 <canvas id="canvas" width="1100" height="500"></canvas>
             </div>
@@ -33,6 +70,7 @@
     <script type="text/javascript" src="js/witch.js"></script>
     <script type="text/javascript" src="js/weapon.js"></script>
     <script type="text/javascript" src="js/enemy.js"></script>
+    <script type="text/javascript" src="js/disappear.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
