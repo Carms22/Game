@@ -10,8 +10,9 @@ class Game {
         this.tickObstacle = 0
         this.tickEnemy = 0;
         this.levelUp=5;
-        this.levelsIndex = 0;
-        this.levels = [{
+        this.levelEnIndex = 0;
+        this.arrayIndex=0;
+        this.arrayEnemies = [[{
                 name: "bat",
                 img: "/img/enemigos/bat-rosa.png",
                 health: 10,
@@ -19,6 +20,7 @@ class Game {
                 vx: -2,
                 h: 75,
                 witch: this.witch,
+                points:1,
                 sound: "/sounds/bats.mp3"
             },
             {
@@ -28,7 +30,8 @@ class Game {
                 strength: 3,
                 vx: -3,
                 h: 75,
-                witch: this.witch
+                witch: this.witch,
+                points: 2,
             },
             {
                 name: "thing",
@@ -37,7 +40,8 @@ class Game {
                 strength: 4,
                 vx: -2,
                 h: 200,
-                witch: this.witch
+                witch: this.witch,
+                points: 2,
             },
             {
                 name: "bat_2",
@@ -47,8 +51,53 @@ class Game {
                 vx: -5,
                 h: 75,
                 witch: this.witch,
+                points:3,
+                sound: "/sounds/bats.mp3"
+            }],
+            [{
+                name: "bat",
+                img: "/img/enemigos/bat-rosa.png",
+                health: 10,
+                strength: 3,
+                vx: -4,
+                h: 75,
+                witch: this.witch,
+                points:4,
+                sound: "/sounds/bats.mp3"
+            },
+            {
+                name: "ghost",
+                img: "/img/enemigos/ghost.png",
+                health: 30,
+                strength: 5,
+                vx: -5,
+                h: 75,
+                witch: this.witch,
+                points:4,
+            },
+            {
+                name: "thing",
+                img: "/img/enemigos/mano.png",
+                health: 40,
+                strength: 7,
+                vx: -7,
+                h: 200,
+                witch: this.witch,
+                points:5,
+            },
+            {
+                name: "bat_2",
+                img: "/img/enemigos/bat_2.png",
+                health: 40,
+                strength: 10,
+                vx: -8,
+                h: 75,
+                witch: this.witch,
+                points:5,
                 sound: "/sounds/bats.mp3"
             }
+                
+            ]
 
         ]
         this.count = 0;
@@ -95,7 +144,7 @@ class Game {
         this.background.move()
         this.witch.move()
         this.obstacles.forEach(obs => obs.move())
-        if(this.levelUp< 4){
+        if(this.levelUp < 4){
             this.enemies.forEach(en => en.move())
         } else {
            this.enemies.forEach(en => en.moveWithIA())
@@ -120,7 +169,6 @@ class Game {
         if(witchVsObs && !this.witch.receivingDamage) {
             this.witch.health -= witchVsObs.strength;
             this.witch.receivingDamage = true;
-            
             setTimeout(() => {
                 this.witch.receivingDamage = false;
             }, 1000);
@@ -134,8 +182,12 @@ class Game {
             }, 1000);
         }
 
-        if (this.witch.y + this.witch.h >= this.ctx.canvas.height) {
+        if (this.witch.y + this.witch.h >= this.ctx.canvas.height && !this.witch.receivingDamage) {
             this.witch.health -= 1;
+            this.witch.receivingDamage = true;
+            setTimeout(() => {
+                this.witch.receivingDamage = false;
+            }, 1000);
         }
 
        this.enemies.forEach((en, eIndex) => {
@@ -145,7 +197,7 @@ class Game {
                     en.health -= this.witch.strenght;
                     if (en.health <= 0) {
                         this.count += 1;
-                        this.totalCount += 1;
+                        this.totalCount += en.points;
                         this.disappears.push(new Disappear(en))
                         this.enemies.splice(eIndex, 1)
                         setTimeout(() => {
@@ -154,10 +206,17 @@ class Game {
                         if (this.count >= 1) {
                             // levelUp!!! new enemy
                             this.levelUp += 1;
-                            this.levelsIndex += 1;
+                            this.levelEnIndex += 1;
                             this.count = 0;
-                            if (this.levelsIndex >= 4) {
-                                this.levelsIndex = 0;
+                            if (this.levelEnIndex >= 4) {
+                                this.levelEnIndex = 0;
+                                this.arrayIndex++;
+                                if(this.arrayIndex > 1){
+                                    this.arrayIndex=0;
+                                }
+                                
+                                // this new background
+
                             }
                         }
                     }
@@ -173,34 +232,35 @@ class Game {
     addEnemy() {
         this.enemies.push(new Enemy(
             this.ctx,
-            this.levels[this.levelsIndex].name,
-            this.levels[this.levelsIndex].img,
-            this.levels[this.levelsIndex].health,
-            this.levels[this.levelsIndex].strength,
-            this.levels[this.levelsIndex].vx,
-            this.levels[this.levelsIndex].h,
-            this.levels[this.levelsIndex].witch,
-            this.levels[this.levelsIndex].sound))
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].name,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].img,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].health,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].strength,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].vx,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].h,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].witch,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].points,
+            this.arrayEnemies[this.arrayIndex][this.levelEnIndex].sound))
 
     }
 
 
-    /*
-      gameOver() {
+    
+      stop() {
         clearInterval(this.intervalId);
         this.intervalId = null
-        this.ctx.font = "30px Arial";
-        this.ctx.fillStyle = "red";
+        this.ctx.font = "50px wichFont";
+        this.ctx.fillStyle = "purple";
         this.ctx.textAlign = "center";
-        this.ctx.fillText("GAME OVER", this.ctx.canvas.width/2, this.ctx.canvas.height/2);
+        this.ctx.fillText("PAUSE", this.ctx.canvas.width/2, this.ctx.canvas.height/2,200);
       } 
-       */
+    
     score() {
         this.ctx.font = "20px Arial"
         this.ctx.fillStyle = "black";
         this.ctx.textAlign = "center";
         this.ctx.fillText(`Points:${this.totalCount}`, 50, 20);
         this.ctx.fillText(`Life:${this.witch.health}`, 50, 50);
-        this.ctx.fillText(`level:${this.levelsIndex}`, 50, 80);
+        this.ctx.fillText(`level:${this.arrayIndex +1}`, 50, 80);
     }
 }

@@ -1,5 +1,5 @@
 class Enemy {
-    constructor(ctx,name,img,health,strength,vx,h,witch, sound) {
+    constructor(ctx,name,img,health,strength,vx,h,witch,points, sound) {
         this.ctx = ctx;
         this.witch =witch;
         this.name =name;
@@ -16,6 +16,7 @@ class Enemy {
         this.health = health;
         this.vx = vx;
         this.vy= 2;
+        this.points=points;
         this.disappear= new Disappear(this);
         this.sound= new Audio();
         this.sound.src=sound;

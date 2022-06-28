@@ -15,7 +15,7 @@ class Witch {
             left: false,
             shoot: false,
         }
-        this.health = 1200;
+        this.health = 200;
         this.strenght = 10;
 
         this.img = new Image();
@@ -32,6 +32,7 @@ class Witch {
         this.soundCat= new Audio();
         this.soundCat.src= "/sounds/cats.mp3";
         this.receivingDamage = false;
+        this.isSound=false;
     }
 
     draw() {
@@ -136,7 +137,15 @@ class Witch {
                 this.actions.left = apply;
                 break;
             case ALT:
-                this.soundCat.play();
+                if(!this.isSound){
+                    this.isSound=true;
+                    this.soundCat.play();
+                    setTimeout(()=>{ 
+                        this.isSound=false;
+                    },1000)
+                    
+                }
+                
                 this.actions.shoot = apply;
                 break;
         }

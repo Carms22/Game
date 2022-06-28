@@ -1,11 +1,11 @@
 @font-face {
-  font-family: myFirstFont;
+  font-family: wichFont;
   src: url(Nightcore\ Demo.ttf);
 }
 
 html,
 body {
-  font-family: myFirstFont;
+  font-family: wichFont;
   background-image: url("../img/background-page.png");
   height: 100%;
   width: 100%;
@@ -25,6 +25,7 @@ body {
 }
 
 canvas {
+  position: relative;
   background-image: url("/img/photo-niebla_2.jpg");
   background-size: cover;
   background-position: center;
@@ -32,6 +33,22 @@ canvas {
 }
 
 p {
+  width: 800px;
+  height: 300px;
+  margin: 60px 0px 10px 30px;
+  padding: 20px 0px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 200px;
+  color:black;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  z-index: 2;
+}
+h1 {
   margin: 0px 0px 10px 300px;
   display: flex;
   flex-direction: column;
@@ -57,7 +74,7 @@ button {
   border-radius: 6px;
   border: 3px solid #050505;
   color: #ffffff;
-  font-family: myFirstFont;
+  font-family: wichFont;
   letter-spacing: 10px;
   font-size: 19px;
   font-weight: bold;
@@ -71,5 +88,24 @@ button:hover {
   background-color: #272424;
 }
 .invisible {
+  display: none;
   visibility: hidden;
+}
+.visible {
+  position: absolute;
+  visibility: visible;
+  z-index: 1;
+  width: 800px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ul{
+  list-style: none;
+  margin-left: 150px;
+  letter-spacing: 5px;
+  font-weight: bolder;
 }
