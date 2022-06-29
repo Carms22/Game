@@ -1,11 +1,11 @@
 class Background {
-    constructor(ctx) {
+    constructor(ctx,img) {
       this.ctx = ctx,
       this.x = 0;
       this.y = 0;
       this.vx = -1;
       this.img = new Image();
-      this.img.src = "../img/Niebla_2.png";
+      this.img.src = img;
       this.w = this.ctx.canvas.width;
       this.h = this.ctx.canvas.height;
     }

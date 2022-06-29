@@ -10,8 +10,6 @@ class Bullet {
       this.img.src="/img/cat/cat.png";
       this.img.frameIndex=0;
       this.img.frames=3;
-      this.sound = new Audio();
-      this.sound.src="/sounds/cats.mp3";
       this.tick = 0;
     }
   
@@ -36,7 +34,6 @@ class Bullet {
  
   
     isVisible() {
-        this.sound.play()
         return this.x <= this.ctx.canvas.width
     }
     animate() {

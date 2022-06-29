@@ -31,6 +31,7 @@ class Witch {
         this.sound.src = '/sounds/witch-laugh.mp3';
         this.soundCat= new Audio();
         this.soundCat.src= "/sounds/cats.mp3";
+        this.soundCat.loop = false;
         this.receivingDamage = false;
         this.isSound=false;
     }
@@ -117,7 +118,14 @@ class Witch {
             this.vx=0;
         }
         if (this.actions.shoot) {
-            this.weapon.shoot()          
+            this.weapon.shoot();
+            if(!this.isSound){
+                this.isSound=true;
+                this.soundCat.play();
+                setTimeout(()=>{ 
+                    this.isSound=false;
+                },1000)
+            }        
         }
 
     }
@@ -137,15 +145,6 @@ class Witch {
                 this.actions.left = apply;
                 break;
             case ALT:
-                if(!this.isSound){
-                    this.isSound=true;
-                    this.soundCat.play();
-                    setTimeout(()=>{ 
-                        this.isSound=false;
-                    },1000)
-                    
-                }
-                
                 this.actions.shoot = apply;
                 break;
         }
