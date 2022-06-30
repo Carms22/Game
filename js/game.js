@@ -233,7 +233,7 @@ class Game {
                             //Index enemies
                             if (this.enIndex >= 2) {
                                 this.enIndex = 0;
-                                //index Array enemies
+                            //index Array enemies
                             if (this.arrayIndex > 4) {
                                     this.arrayIndex = 0;
                                 }

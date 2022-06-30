@@ -32,7 +32,7 @@ canvas {
   border: 5px solid rgb(162, 0, 255);
 }
 
-p {
+.cont-p {
   width: 800px;
   height: 300px;
   margin: 60px 0px 10px 30px;
@@ -66,9 +66,27 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly
 }
+.status{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 30px;
+  left: 15px;
+  width: 200px;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+p{
+  color:#ffffff;
+  font-family: 'Times New Roman', Times, serif;
+  margin-inline: 10px;
+}
 
 button {
-  margin-left: 2px;
+  margin: 0px 0px 15px 2px;
   background: linear-gradient(to bottom, #050505 5%, #050505 100%);
   background-color: #050505;
   border-radius: 6px;
@@ -78,7 +96,7 @@ button {
   letter-spacing: 10px;
   font-size: 19px;
   font-weight: bold;
-  padding: 12px 34px;
+  padding: 5px 10px;
   text-decoration: none;
   text-shadow: 0px -1px 5px #030303;
 }
@@ -95,12 +113,15 @@ button:hover {
   position: absolute;
   visibility: visible;
   z-index: 1;
-  width: 800px;
-  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.visible2{
+  visibility: visible;
+  z-index: 1;
+  display: flex;
 }
 
 ul{

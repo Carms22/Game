@@ -12,39 +12,48 @@
 <body>
     <div class="all">
         <div class="left">
-            <button id="start-button" class="button">Start</button>
-            <button id="about-button" class="button">About</button>
-            <button id="how-button" class="button">How To</button>
+            <div class="status">
+                <p ></p><span></span></p>
+                <p id="life" class="invisible">Life<span>0</span></p>
+                <p id="points" class="invisible">Points<span>0</span></p>
+                <p id="level" class="invisible">Level<span>1</span></p>
+            </div>
+            <div class="column">
+                <button id="start-button" class="button">Start</button>
+                <button id="about-button" class="button">About</button>
+                <button id="how-button" class="button">How To</button>
+            </div>
         </div>
+
         <div class="cont">
             <div class="game-bacground">
                 <h1> HAHAHAHAHHAHAHAHHAHAH !!!!</h1>
             </div>
-             <div id="about" class="invisible">
-                    <p>
-                        Hello guys, this is the scariest witch ever, as you can see. 
-                        <br/>
-                        I am traveling around the threes for fun but some criatures
-                        <br/>
-                          are trying to catch me 
-                        <br/>
-                        Could they??
-                        <br/>
-                        PD: The cats are ok, they like fly as much as me  HAHAHAHAHAHHAAHHA!!!
-                    </p>
+            <div id="about" class="invisible">
+                <p class="cont-p">
+                    Hello guys, this is the scariest witch ever, as you can see.
+                    <br />
+                    I am traveling around the threes for fun but some criatures
+                    <br />
+                    are trying to catch me
+                    <br />
+                    Could they??
+                    <br />
+                    PD: The cats are ok, they like fly as much as me HAHAHAHAHAHHAAHHA!!!
+                </p>
                 <span> Carmen Garcia Guzman</span>
             </div>
             <div id="how" class="invisible">
-                    <h1>JUST GET ON THE BROOM</h1>
-                    <div>
-                        <ul>
-                            <li>PRESS    -W - -UP</li>
-                            <li>PRESS    -A - -LEFT</li>
-                            <li>PRESS    -S - -DOWN</li>
-                            <li>PRESS    -D - -RIGHT</li>
-                            <li>PRESS   -ALT -SHOOT</li>
-                        </ul>
-                    </div>            
+                <h1>JUST GET ON THE BROOM</h1>
+                <div>
+                    <ul>
+                        <li>PRESS -W - -UP</li>
+                        <li>PRESS -A - -LEFT</li>
+                        <li>PRESS -S - -DOWN</li>
+                        <li>PRESS -D - -RIGHT</li>
+                        <li>PRESS -ALT -SHOOT</li>
+                    </ul>
+                </div>
             </div>
             <div id="game-board">
                 <canvas id="canvas" width="1100" height="500"></canvas>
