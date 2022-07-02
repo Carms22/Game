@@ -8,6 +8,7 @@ class Game {
         this.disappears = [];
         this.tickObstacle = 0
         this.tickEnemy = 0;
+        this.healthBar= new HealthBar(this.ctx,this.witch)
         this.levelUp = 0;
         this.enIndex = 0;
         this.arrayIndex = 0;
@@ -108,10 +109,10 @@ class Game {
                     points: 5,
                     sound: "/sounds/bats.mp3"
                 }
-
             ]
-
+      
         ]
+        this.champion= new Champion(this.ctx,this.witch);
         this.count = 0;
         this.totalCount = 0;
 
@@ -156,6 +157,7 @@ class Game {
     move() {
         this.background.move()
         this.witch.move()
+        this.champion.draw()
         this.obstacles.forEach(obs => obs.move())
         if (this.levelUp < 4) {
             this.enemies.forEach(en => en.move())
@@ -167,6 +169,8 @@ class Game {
     draw() {
         this.background.draw()
         this.witch.draw()
+        this.healthBar.draw()
+        this.champion.draw()
         this.obstacles.forEach(obs => obs.draw())
         this.disappears.forEach(dis => dis.draw())
         this.enemies.forEach(en => {
@@ -235,7 +239,8 @@ class Game {
                                 this.enIndex = 0;
                             //index Array enemies
                             if (this.arrayIndex > 4) {
-                                    this.arrayIndex = 0;
+                                    this.champion.draw()
+                                    this.background=new Background (this.ctx,this.backgroundImg[4])
                                 }
                             }
                         }
@@ -243,6 +248,18 @@ class Game {
                 }
             })
         })
+        // if(this.champion.collide(this.witch)){
+        //     this.witch.health-=this.champion.strenght;
+        // }
+        // this.witch.weapon.bullets.forEach((bu, BuIndex) => {
+        //     if(this.champion.collide(bu)){
+        //         this.witch.weapon.bullets.splice(BuIndex, 1);
+        //         this.champion.health-=this.witch.strenght;
+        //     }
+        // })
+        if(this.witch.health<=0){
+            this.gameOver()
+        }
     }
 
     addObstacle() {
@@ -274,6 +291,14 @@ class Game {
         this.ctx.textAlign = "center";
         this.ctx.fillText("PAUSE", this.ctx.canvas.width / 2, this.ctx.canvas.height / 2, 200);
     }
+    gameOver(){
+        clearInterval(this.intervalId);
+        this.intervalId = null
+        this.ctx.font = "50px wichFont";
+        this.ctx.fillStyle = "purple";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText("OOHHHHHH!! Next time ", this.ctx.canvas.width / 2, this.ctx.canvas.height / 2, 200);
+    }
     update(){
         clearInterval(this.intervalId);
         this.intervalId = null
@@ -286,8 +311,8 @@ class Game {
         this.ctx.font = "20px Arial"
         this.ctx.fillStyle = "black";
         this.ctx.textAlign = "center";
-        this.ctx.fillText(`Points:${this.totalCount}`, 50, 20);
-        this.ctx.fillText(`Life:${this.witch.health}`, 50, 50);
+        this.ctx.fillText(`Life: `, 30, 20);
+        this.ctx.fillText(`Points:${this.totalCount}`, 50, 50);
         this.ctx.fillText(`level:${this.arrayIndex +1}`, 50, 80);
     }
 }

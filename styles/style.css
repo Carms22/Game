@@ -66,14 +66,6 @@ h1 {
   flex-direction: column;
   justify-content: space-evenly
 }
-.status{
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 30px;
-  left: 15px;
-  width: 200px;
-}
 .column{
   display: flex;
   flex-direction: column;
@@ -81,7 +73,7 @@ h1 {
 
 p{
   color:#ffffff;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: wichFont;
   margin-inline: 10px;
 }
 
@@ -118,12 +110,6 @@ button:hover {
   align-items: center;
   flex-direction: column;
 }
-.visible2{
-  visibility: visible;
-  z-index: 1;
-  display: flex;
-}
-
 ul{
   list-style: none;
   margin-left: 150px;

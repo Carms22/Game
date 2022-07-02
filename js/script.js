@@ -6,35 +6,23 @@ const btnAbaout=document.getElementById("about-button");
 const btnHowTo=document.getElementById("how-button");
 const aboutSelect=document.getElementById("about");
 const howSelect=document.getElementById("how");
-const life= document.getElementById("life");
-const points= document.getElementById("points");
-const level= document.getElementById("level");
+
 
 window.onload = () => {
   document.getElementById('start-button').onclick = () => {
     startGame();
-
   };
-
-
   function startGame() {
     if (game.intervalId === null) {
       game.start()
       game.score()
     } else {
-
       game.stop()
-
     }
   }
 };
 
-life.textContent= game.totalCount
-
-btnStart.addEventListener(`click`,e =>{
-    life.classList.toggle("visible2")
-    points.classList.toggle("visible2")
-    level.classList.toggle("visible2")
+btnStart.addEventListener(`click`,e =>{ 
     btnAbaout.classList.toggle("invisible")
     btnHowTo.classList.toggle("invisible")
     if(btnStart.textContent === "Pause"){
@@ -66,7 +54,6 @@ btnHowTo.addEventListener(`click`,e =>{
     }else{
         btnHowTo.textContent = "Back";
     }
-   
 })
 
 

@@ -15,7 +15,8 @@ class Witch {
             left: false,
             shoot: false,
         }
-        this.health = 200;
+        this.maxHealth=50;
+        this.health = 100;
         this.strenght = 10;
 
         this.img = new Image();
