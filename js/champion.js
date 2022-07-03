@@ -24,7 +24,7 @@ class Champion{
         if(this.y < this.witch.y){
             this.y += this.vy;
         }     
-        if(this.x > this.witch.x) {
+        if(this.x  >= this.witch.x) {
             this.x-=this.vx;
         }
         if(this.x< this.witch.x){
