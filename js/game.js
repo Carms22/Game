@@ -95,7 +95,7 @@ class Game {
             ],
             [{
                     name: "Dead",
-                    img: "/img/enemigos/Muerte-removebg-preview.png",
+                    img: "./img/enemigos/Muerte-removebg-preview.png",
                     health: 30,
                     strength: 7,
                     vx: -7,
