@@ -10,6 +10,7 @@ There are 3 buttons, one for playing and pause the game (play); one for Know bwt
 I would like to implement in the future more enemies and others champions , more obstacules and even regain life objects.
 
 thanks for reading ;)
-<img src="./img/readMe/principal.PNG" alt="Principal page" width="400" height="300">
-<img src="./img/readMe/game.PNG" alt="Principal page" width="400" height="300">
-<img src="./img/readMe/howTo.PNG" alt="Principal page" width="400" height="300">
+
+<img src="./img/readMe/principal.PNG" alt="Principal page" width="400" height="200">
+<img src="./img/readMe/game.PNG" alt="game" width="400" height="200">
+<img src="./img/readMe/howTo.PNG" alt="How to" width="100" height="50">
