@@ -15,12 +15,11 @@ class Witch {
             left: false,
             shoot: false,
         }
-        this.maxHealth=50;
-        this.health = 100;
+        this.maxHealth=60;
+        this.health = 60;
         this.strenght = 10;
-
         this.img = new Image();
-        this.img.src = "/img/bruja-removebg-preview.png";
+        this.img.src = "./img/bruja-removebg-preview.png";
         this.img.frames = 4;
         this.img.yFrames = 2;
         this.img.frameIndex = 0;
@@ -29,9 +28,9 @@ class Witch {
         this.setListeners()
         this.weapon = new Weapon(this);
         this.sound = new Audio();
-        this.sound.src = '/sounds/witch-laugh.mp3';
+        this.sound.src = './sounds/witch-laugh.mp3';
         this.soundCat= new Audio();
-        this.soundCat.src= "/sounds/cats.mp3";
+        this.soundCat.src= "./sounds/cats.mp3";
         this.soundCat.loop = false;
         this.receivingDamage = false;
         this.isSound=false;
@@ -128,7 +127,6 @@ class Witch {
                 },1000)
             }        
         }
-
     }
 
     switchAction(key, apply) {
@@ -150,5 +148,4 @@ class Witch {
                 break;
         }
     }
-   
 }

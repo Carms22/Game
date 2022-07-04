@@ -7,7 +7,7 @@ class Champion{
         this.w = 150;
         this.h = 200;
         this.img = new Image();
-        this.img.src = "/img/enemigos/champion.png";
+        this.img.src = "./img/enemigos/champion.png";
         this.img.frames = 6;
         this.img.frameIndex = 0;
         this.tick=0;
@@ -15,6 +15,7 @@ class Champion{
         this.health = 160;
         this.vx = 2;
         this.vy= 2;
+        this.points=7;
     }
     
     move() { 
@@ -24,7 +25,7 @@ class Champion{
         if(this.y < this.witch.y){
             this.y += this.vy;
         }     
-        if(this.x  >= this.witch.x) {
+        if(this.x  > this.witch.x) {
             this.x-=this.vx;
         }
         if(this.x< this.witch.x){

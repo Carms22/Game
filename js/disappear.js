@@ -6,7 +6,7 @@ class Disappear {
     this.w = enemy.w;
     this.h = enemy.h;
     this.img = new Image();
-    this.img.src = "/img/Exp/Expl.png";
+    this.img.src = "./img/Exp/Expl-yellow.png";
     this.img.frameIndex = 0;
     this.img.frames = 6;
     this.tick = 0;

@@ -1,18 +1,19 @@
 class HealthBar {
-    constructor(ctx,witch){
+    constructor(ctx,witch,color){
         this.ctx=ctx;
         this.witch=witch;
+        this.color=color;
     }
     draw(){
-    this.ctx.fillStyle = "violet";
+    this.ctx.fillStyle =this.color;
     this.ctx.fillRect(
-        50,
-        10, 
+        this.witch.x,
+        this.witch.y-10, 
         this.witch.health, 
         7)
     this.ctx.strokeRect(
-        50,
-        10, 
+        this.witch.x,
+        this.witch.y-10, 
         this.witch.maxHealth, 
         7)
     }

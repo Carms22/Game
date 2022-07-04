@@ -30,8 +30,8 @@ btnStart.addEventListener(`click`,e =>{
     }else{
         btnStart.textContent = "Pause";
     }
-   
 })
+
 btnAbaout.addEventListener(`click`,e =>{
     aboutSelect.classList.toggle("invisible")
     aboutSelect.classList.toggle("visible")
@@ -42,7 +42,6 @@ btnAbaout.addEventListener(`click`,e =>{
     }else{
         btnAbaout.textContent = "Back";
     }
-   
 })
 btnHowTo.addEventListener(`click`,e =>{
     howSelect.classList.toggle("invisible")

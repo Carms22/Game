@@ -6,7 +6,7 @@ class Obstacle {
         this.w = 100;
         this.h = 250;
         this.img = new Image();
-        this.img.src = "../img/luz-negro.png"
+        this.img.src = "./img/luz-negro.png"
         this.img.frames = 4;
         this.img.frameIndex = 0;
         this.tick=0;

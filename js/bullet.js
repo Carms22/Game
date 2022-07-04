@@ -7,7 +7,7 @@ class Bullet {
       this.h=30;
       this.vx = 5
       this.img = new Image();
-      this.img.src="/img/cat/cat.png";
+      this.img.src="./img/cat/cat.png";
       this.img.frameIndex=0;
       this.img.frames=3;
       this.tick = 0;
