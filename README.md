@@ -1,4 +1,4 @@
-Flappy Witch Game, my first Project in Ironhack!!!
+<h1>Flappy Witch Game, my first Project in Ironhack!!!</h1>
 
 This is a game about a little witch that goes around fighting monsters.
 I used Javascript, css and html languages.
@@ -10,4 +10,6 @@ There are 3 buttons, one for playing and pause the game (play); one for Know bwt
 I would like to implement in the future more enemies and others champions , more obstacules and even regain life objects.
 
 thanks for reading ;)
-
+<img src="./img/readMe/principal.PNG" alt="Principal page" width="400" height="300">
+<img src="./img/readMe/game.PNG" alt="Principal page" width="400" height="300">
+<img src="./img/readMe/howTo.PNG" alt="Principal page" width="400" height="300">
