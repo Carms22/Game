@@ -37,7 +37,7 @@ class Game {
                 {
                     name: "ghost",
                     img: "./img/enemigos/ghost.png",
-                    health: 15,
+                    health: 30,
                     strength: 3,
                     vx: -3,
                     h: 75,
@@ -60,7 +60,7 @@ class Game {
                 {
                     name: "bat_2",
                     img: "./img/enemigos/bat_2.png",
-                    health: 30,
+                    health: 20,
                     strength: 10,
                     vx: -5,
                     h: 75,
@@ -72,7 +72,7 @@ class Game {
             [{
                     name: "gargola",
                     img: "./img/enemigos/gargolas-removebg-preview.png",
-                    health: 10,
+                    health: 20,
                     strength: 3,
                     vx: -4,
                     h: 75,
@@ -83,7 +83,7 @@ class Game {
                 {
                     name: "Pig",
                     img: "./img/enemigos/Pig-removebg-preview.png",
-                    health: 30,
+                    health: 10,
                     strength: 5,
                     vx: -5,
                     h: 75,
@@ -116,6 +116,7 @@ class Game {
                 }
             ]
         ]
+        this.interval=60;
         this.championCreated = false;
         this.count = 0;
         this.totalCount = 0;
@@ -151,7 +152,7 @@ class Game {
             }
             this.score();
             this.soudnGame.play()
-        }, 1000 / 60)
+        }, 1000 / this.interval)
     }
 
     clear() {
@@ -346,7 +347,15 @@ class Game {
         const playAgainBtn= document.getElementById("play-again");
         playAgainBtn.classList.toggle("visible")
         playAgainBtn.addEventListener(`click`,e =>{ 
-            Window.Location.reload();
+            playAgainBtn.classList.remove("visible");
+            playAgainBtn.classList.add("invisible");
+            this.interval=100;
+            this.levelUp=0;
+            this.enIndex=0;
+            this.arrayIndex=0;
+            this.championCreated=false;
+            this.background = new Background(this.ctx, this.backgroundImg[this.levelUp]);
+            this.start()
         })
         this.soundWin.play();
         clearInterval(this.intervalId);
