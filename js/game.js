@@ -345,6 +345,8 @@ class Game {
     }
     youWin() {
         const playAgainBtn= document.getElementById("play-again");
+        const refreshBtn= document.getElementById("refresh");
+        refreshBtn.classList.toggle("visible")
         playAgainBtn.classList.toggle("visible")
         playAgainBtn.addEventListener(`click`,e =>{ 
             playAgainBtn.classList.remove("visible");
@@ -356,6 +358,9 @@ class Game {
             this.championCreated=false;
             this.background = new Background(this.ctx, this.backgroundImg[this.levelUp]);
             this.start()
+        })
+        refreshBtn.addEventListener(`click`,e =>{ 
+           location.reload()
         })
         this.soundWin.play();
         clearInterval(this.intervalId);

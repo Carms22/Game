@@ -16,7 +16,11 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
-
+.fix{
+  position: fixed;
+  bottom: 150px;
+  left: 5px;
+}
 .cont {
   display: flex;
   flex-direction: column;

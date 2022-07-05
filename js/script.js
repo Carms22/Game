@@ -23,8 +23,8 @@ window.onload = () => {
 };
 
 btnStart.addEventListener(`click`,e =>{ 
-    btnAbaout.classList.toggle("invisible")
-    btnHowTo.classList.toggle("invisible")
+    btnAbaout.classList.add("invisible")
+    btnHowTo.classList.add("invisible")
     if(btnStart.textContent === "Pause"){
         btnStart.textContent = "Start";
     }else{
