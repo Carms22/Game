@@ -25,7 +25,7 @@ class Witch {
         this.img.frameIndex = 0;
         this.img.yFrameIndex=0;
         this.tick = 0;
-        this.setListeners()
+        this.setListeners();
         this.weapon = new Weapon(this);
         this.sound = new Audio();
         this.sound.src = './sounds/witch-laugh.mp3';
@@ -42,7 +42,6 @@ class Witch {
         } else {
             this.img.yFrameIndex = 0;
         }
-
         this.ctx.drawImage(
             this.img,
             this.img.frameIndex * this.img.width / this.img.frames,
@@ -82,8 +81,6 @@ class Witch {
         }
         this.weapon.move()
     }
-
-
     animate() {
         this.tick++
         if (this.tick >= 10) {

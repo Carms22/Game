@@ -120,6 +120,7 @@ class Game {
         this.championCreated = false;
         this.count = 0;
         this.totalCount = 0;
+        this.roundTwo=false;
         this.soudnGame= new Audio();
         this.soudnGame.src="./sounds/game.wav"
         this.soundGOver= new Audio();
@@ -127,8 +128,6 @@ class Game {
         this.soundWin= new Audio();
         this.soundWin.src="./sounds/win.wav"
     }
-
-
     start() {
         this.intervalId = setInterval(() => {
             this.clear();
@@ -285,8 +284,6 @@ class Game {
             this.arrayEnemies[this.arrayIndex][this.enIndex].sound))
     }
 
-
-
     stop() {
         clearInterval(this.intervalId);
         this.intervalId = null
@@ -296,6 +293,15 @@ class Game {
         this.ctx.fillText("PAUSE", this.ctx.canvas.width / 2, this.ctx.canvas.height / 2, 200);
     }
     gameOver() {
+        const playAgainBtn= document.getElementById("play-again");
+        const refreshBtn= document.getElementById("refresh");
+        btnStart.classList.remove("visible")  
+        btnStart.classList.add("invisible") 
+        refreshBtn.classList.remove("pale")
+        refreshBtn.classList.toggle("button")
+        refreshBtn.addEventListener(`click`,e =>{ 
+            location.reload()
+         })
         this.soudnGame.pause();
         this.soundGOver.play();
         clearInterval(this.intervalId);
@@ -346,9 +352,18 @@ class Game {
     youWin() {
         const playAgainBtn= document.getElementById("play-again");
         const refreshBtn= document.getElementById("refresh");
-        refreshBtn.classList.toggle("visible")
-        playAgainBtn.classList.toggle("visible")
+        if(!this.roundTwo){
+            refreshBtn.classList.remove("pale") 
+            playAgainBtn.classList.remove("pale")
+            playAgainBtn.classList.toggle("button")
+            refreshBtn.classList.toggle("button") 
+        }  
+        if(this.roundTwo)   {
+          btnStart.classList.remove("visible")  
+          btnStart.classList.add("invisible")  
+        }
         playAgainBtn.addEventListener(`click`,e =>{ 
+            this.roundTwo=true;
             playAgainBtn.classList.remove("visible");
             playAgainBtn.classList.add("invisible");
             this.interval=100;
@@ -356,6 +371,8 @@ class Game {
             this.enIndex=0;
             this.arrayIndex=0;
             this.championCreated=false;
+            this.champion.health=200;
+            this.champion.strenght=12;
             this.background = new Background(this.ctx, this.backgroundImg[this.levelUp]);
             this.start()
         })

@@ -17,7 +17,7 @@ body {
   align-items: center;
 }
 .fix{
-  position: fixed;
+  position: relative;
   bottom: 150px;
   left: 5px;
 }
@@ -81,7 +81,7 @@ p{
   margin-inline: 10px;
 }
 
-button {
+.button {
   margin: 0px 0px 15px 2px;
   background: linear-gradient(to bottom, #050505 5%, #050505 100%);
   background-color: #050505;
@@ -97,7 +97,7 @@ button {
   text-shadow: 0px -1px 5px #030303;
 }
 
-button:hover {
+.button:hover {
   background: linear-gradient(to bottom, #393636 5%, #050505 100%);
   background-color: #272424;
 }
@@ -119,4 +119,19 @@ ul{
   margin-left: 150px;
   letter-spacing: 5px;
   font-weight: bolder;
+}
+.pale{
+  background-color: #4c4b4b;
+  margin: 0px 0px 15px 2px;
+  background: linear-gradient(to bottom, #414040 5%, #3a3a3a 100%);
+  border-radius: 6px;
+  border: 3px solid #353434;
+  color: #ffffff;
+  font-family: wichFont;
+  letter-spacing: 10px;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-shadow: 0px -1px 5px #030303;
 }

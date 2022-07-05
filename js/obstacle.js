@@ -10,7 +10,7 @@ class Obstacle {
         this.img.frames = 4;
         this.img.frameIndex = 0;
         this.tick=0;
-        this.strength=2;
+        this.strength=4;
         this.vx = -2;
     }
 
