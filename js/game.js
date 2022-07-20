@@ -298,7 +298,7 @@ class Game {
         btnStart.classList.remove("visible")  
         btnStart.classList.add("invisible") 
         refreshBtn.classList.remove("pale")
-        refreshBtn.classList.toggle("button")
+        refreshBtn.classList.add("button")
         refreshBtn.addEventListener(`click`,e =>{ 
             location.reload()
          })
